@@ -11,7 +11,6 @@ player.on('play', function () {
 player.on('timeupdate', throttle(timeSave, 1000));
 
 function timeSave() {
-  console.log('сохраняем время');
   player.getCurrentTime().then(function (seconds) {
     localStorage.setItem('videoplayer-current-time', seconds);
   });
