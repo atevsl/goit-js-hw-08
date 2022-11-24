@@ -1,4 +1,4 @@
-let throttle = require('lodash.throttle');
+import throttle from 'lodash.throttle';
 
 const formEL = document.querySelector('.feedback-form');
 const emailEl = document.querySelector('[name="email"]');
@@ -11,23 +11,18 @@ formEL.addEventListener('submit', onSubmitForm);
 
 loadForm();
 
-function saveForm(event) {
-  const {
-    elements: { email, message },
-  } = event.currentTarget;
-
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({
-      [email.name]: email.value,
-      [message.name]: message.value,
-    })
-  );
+function saveForm() {
+  const formData = {};
+  formEL.addEventListener('input', e => {
+    formData[e.target.name] = e.target.value;
+    console.log(formData);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  });
 }
 
 function onSubmitForm(event) {
   event.preventDefault();
-  event.currentTarget.reset();
+  event.target.reset();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
 }
