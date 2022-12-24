@@ -19,6 +19,10 @@
   font: inherit;
   cursor: pointer;
 }
+.feedback-form button:hover {
+  background-color: black;
+  color: white;
+}
 
 input,
 textarea {

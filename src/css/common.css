@@ -16,3 +16,19 @@ img {
   display: block;
   max-width: 100%;
 }
+ul {
+  list-style: none;
+}
+.btnLink {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.btnLink:hover {
+  background-color: black;
+  color: white;
+}
